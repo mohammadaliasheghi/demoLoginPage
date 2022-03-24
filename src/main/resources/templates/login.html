@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<form method="post" th:action="@{/login}">
+    <label>
+        <input class="form-control" type="email" name="email" placeholder="email">
+        <p th:if="${Email == 'notFound'}">Email Invalid</p>
+    </label>
+    <br><br>
+    <label>
+        <input class="form-control" type="password" name="password" placeholder="password">
+        <p th:if="${Password == 'false'}">password inCurrent</p>
+    </label>
+    <br><br>
+    <button class="btn btn-success" type="submit">Submit</button>
+</form>
+</body>
+</html>

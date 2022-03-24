@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTER</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<form method="post" th:action="@{/register}" th:object="${user}">
+    <label>
+        <input class="form-control" type="text" name="name" placeholder="name" th:field="*{name}">
+        <p th:if="${#fields.errors('name')}" th:errors="*{name}"></p>
+    </label>
+    <br><br>
+    <label>
+        <input class="form-control" type="text" name="family" placeholder="family" th:field="*{family}">
+        <p th:if="${#fields.errors('family')}" th:errors="*{family}"></p>
+    </label>
+    <br><br>
+    <label>
+        <input class="form-control" type="number" name="number" placeholder="number" th:field="*{number}">
+        <p th:if="${#fields.errors('number')}" th:errors="*{number}"></p>
+    </label>
+    <br><br>
+    <label>
+        <input class="form-control" type="email" name="email" placeholder="email" th:field="*{email}">
+        <p th:if="${emailStatus == 'duplicate'}">Email Is present</p>
+        <p th:if="${#fields.errors('email')}" th:errors="*{email}"></p>
+    </label>
+    <br><br>
+    <label>
+        <input class="form-control" type="password" name="password" placeholder="password" th:field="*{password}">
+        <p th:if="${#fields.errors('password')}" th:errors="*{password}"></p>
+    </label>
+    <br><br>
+    <button class="btn btn-success" type="submit">Save</button>
+</form>
+</body>
+</html>
